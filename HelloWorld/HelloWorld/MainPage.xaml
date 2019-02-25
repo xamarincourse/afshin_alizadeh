@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:HelloWorld"
+             x:Class="HelloWorld.MainPage">
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="50"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"/>
+      <ColumnDefinition Width="*"/>
+    </Grid.ColumnDefinitions>
+    <!--<Label Text="HOTELS"  Grid.Row="0" Grid.Column="0"/>
+        <Label Text="FLIGHTS" Grid.Row="0" Grid.Column="1"/>
+        <Label Text="CARS" Grid.Row="1" Grid.Column="0"/>
+        <Label Text="ACTIVITIES" Grid.Row="1" Grid.Column="1"/>
+        
+        <Label Text="Popular Hotels Tonoght" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label Text="LOEWS REGENCY SAN FRAN..." Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+        <Label Text="THE FARMO" Grid.Row="5" Grid.Column="0" Grid.RowSpan="2"/>
+        <Label  Text="HOTEL UNO" Grid.Row="5" Grid.Column="1" Grid.RowSpan="2"/>-->
+
+
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.Hotels.png}"  Grid.Row="0" Grid.Column="0"/>
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.Flights.png}"  Grid.Row="0" Grid.Column="1" Clicked="Flighs_Clicked"/>
+
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.Cars.png}"  Grid.Row="1" Grid.Column="0"/>
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.Activities.png}"  Grid.Row="1" Grid.Column="1"/>
+
+    <StackLayout Padding="25,10,25,10" BackgroundColor="#e1e6ef"  Orientation="Horizontal" Grid.Row="2" Grid.Column="0"  Grid.ColumnSpan="2">
+      <Label  Text="Popular Hotels Tonoight" />
+      <Label Text="See more" TextColor="Blue" HorizontalOptions="EndAndExpand"/>
+    </StackLayout>
+
+
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.SanFran.png}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.Fairmo.png}"   Grid.Row="5" Grid.Column="0" Grid.RowSpan="2"/>
+    <ImageButton Source="{local:ImageResource HelloWorld.Images.HTelUnio.png}"  Grid.Row="5" Grid.Column="1" Grid.RowSpan="2"/>
+
+  </Grid>
+
+</ContentPage>

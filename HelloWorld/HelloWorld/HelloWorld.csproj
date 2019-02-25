@@ -1,0 +1,42 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>pdbonly</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Activities.png" />
+    <None Remove="Cars.png" />
+    <None Remove="fairmo.png" />
+    <None Remove="Flights.png" />
+    <None Remove="Hotels.png" />
+    <None Remove="HTelUnio.png" />
+    <None Remove="SanFran.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\Activities.png" />
+    <EmbeddedResource Include="Images\Cars.png" />
+    <EmbeddedResource Include="Images\Fairmo.png" />
+    <EmbeddedResource Include="Images\Flights.png" />
+    <EmbeddedResource Include="Images\Hotels.png" />
+    <EmbeddedResource Include="Images\HTelUnio.png" />
+    <EmbeddedResource Include="Images\SanFran.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="3.5.0.129452" />
+    <PackageReference Include="Xamarin.HotReload" Version="1.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="MyFlights.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:renderers="clr-namespace:HelloWorld.Renderer"
+             x:Class="HelloWorld.MyFlights">
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <Style x:Key="AirportStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="40" />
+      </Style>
+      <Style x:Key="HeaderStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="25" />
+      </Style>
+      <Style x:Key="TimeStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="15" />
+      </Style>
+      <Style x:Key="BoardingStyle" TargetType="Label">
+        <Setter Property="TextColor" Value="White"/>
+        <Setter Property="FontSize" Value="15" />
+        <Setter Property="HorizontalOptions" Value="Center" />
+        <Setter Property="FontAttributes" Value="Bold"/>
+      </Style>
+      <Style x:Key="FlightInfoLable" TargetType="Label">
+        <Setter Property="TextColor" Value="Red"/>
+      </Style>
+      <Style x:Key="FlightInfoOnTimeStatus" TargetType="Label">
+        <Setter Property="TextColor" Value="Green"/>
+      </Style>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+  <ContentPage.Content>
+    <Grid>
+      <Grid.RowDefinitions>
+        <RowDefinition Height="6*"/>
+        <RowDefinition Height="1*"/>
+        <RowDefinition Height="3*"/>
+      </Grid.RowDefinitions>
+      <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="*"/>
+      </Grid.ColumnDefinitions>
+
+      <renderers:GradientLayout
+                ColorsList="#803E96,#AE2F61,#DB212D" Mode="ToRight">
+
+        <StackLayout Grid.Row="0" Grid.Column="0" Padding="0,60,0,0">
+          <Label Text="It's go time." HorizontalOptions="CenterAndExpand" Style="{StaticResource HeaderStyle}" />
+          <Label Text="Boarding 8:20 PM at Gate B79" HorizontalOptions="CenterAndExpand" Style="{StaticResource TimeStyle}"/>
+          <StackLayout Orientation="Horizontal" Padding="0,30,0,0">
+            <Label Text="SFO" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
+
+            <Label Text="&#xf061;" HeightRequest="100"  TextColor="White" FontSize="36" Margin="0,15,0,0">
+              <Label.FontFamily>
+                <OnPlatform x:TypeArguments="x:String">
+                  <On Platform="UWP, WinRT, WinPhone" Value="Assets/fa-solid-900.ttf#Font Awesome 5 Free" />
+                  <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Free"/>
+                </OnPlatform>
+              </Label.FontFamily>
+            </Label>
+
+            <Label Text="LAX" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
+          </StackLayout>
+          <Frame BorderColor="White" Margin="100,0,100,0" CornerRadius="0">
+            <Label Text="VIEW BOARDING PASS" Style="{StaticResource BoardingStyle}" />
+
+          </Frame>
+          <Label Text="All flights &#xf107;" HorizontalOptions="CenterAndExpand" Style="{StaticResource TimeStyle}">
+            <Label.FontFamily>
+              <OnPlatform x:TypeArguments="x:String">
+                <On Platform="UWP, WinRT, WinPhone" Value="Assets/fa-solid-900.ttf#Font Awesome 5 Free" />
+                <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Free"/>
+              </OnPlatform>
+            </Label.FontFamily>
+          </Label>
+
+        </StackLayout>
+
+      </renderers:GradientLayout>
+
+      <Grid Grid.Row="1" Grid.Column="0" Padding="10,0,10,0">
+        <Grid.RowDefinitions>
+          <RowDefinition Height="*"/>
+          <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Text="TERM"  Grid.Row="0" Grid.Column="0" Style="{StaticResource FlightInfoLable}" />
+        <Label Text="GATE" Grid.Row="0" Grid.Column="1" Style="{StaticResource FlightInfoLable}"/>
+        <Label Text="SEAT" Grid.Row="0" Grid.Column="2" Style="{StaticResource FlightInfoLable}"/>
+        <Label Text="DEPART" Grid.Row="0" Grid.Column="3" Style="{StaticResource FlightInfoLable}"/>
+
+        <Label Text="1"  Grid.Row="1" Grid.Column="0"/>
+        <Label Text="A5" Grid.Row="1" Grid.Column="1"/>
+        <Label Text="5A" Grid.Row="1" Grid.Column="2"/>
+        <Label Text="1:00PM" Grid.Row="1" Grid.Column="3"/>
+        <Label Text="&#xf00c;" Grid.Row="1" Grid.Column="4" Style="{StaticResource FlightInfoOnTimeStatus}">
+          <Label.FontFamily>
+            <OnPlatform x:TypeArguments="x:String">
+              <On Platform="UWP, WinRT, WinPhone" Value="Assets/fa-solid-900.ttf#Font Awesome 5 Free" />
+              <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Free"/>
+            </OnPlatform>
+          </Label.FontFamily>
+        </Label>
+        <Label Text="ON-TIME" Grid.Row="1" Grid.Column="5" Style="{StaticResource FlightInfoOnTimeStatus}"/>
+      </Grid>
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>
