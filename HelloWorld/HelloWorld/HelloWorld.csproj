@@ -16,6 +16,7 @@
     <None Remove="Flights.png" />
     <None Remove="Hotels.png" />
     <None Remove="HTelUnio.png" />
+    <None Remove="Images\mahan-airline-logo-fara.png" />
     <None Remove="SanFran.png" />
   </ItemGroup>
 
@@ -26,6 +27,7 @@
     <EmbeddedResource Include="Images\Flights.png" />
     <EmbeddedResource Include="Images\Hotels.png" />
     <EmbeddedResource Include="Images\HTelUnio.png" />
+    <EmbeddedResource Include="Images\mahan-airline-logo-fara.png" />
     <EmbeddedResource Include="Images\SanFran.png" />
   </ItemGroup>
 
@@ -35,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Flights.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="MyFlights.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

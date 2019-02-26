@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:renderers="clr-namespace:HelloWorld.Renderer"
+             xmlns:local="clr-namespace:HelloWorld.Model"
              x:Class="HelloWorld.MyFlights">
   <ContentPage.Resources>
     <ResourceDictionary>
@@ -31,7 +32,11 @@
       </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
+  <ContentPage.BindingContext>
+    <local:Ticket />
+  </ContentPage.BindingContext>
   <ContentPage.Content>
+
     <Grid>
       <Grid.RowDefinitions>
         <RowDefinition Height="6*"/>
@@ -45,11 +50,21 @@
       <renderers:GradientLayout
                 ColorsList="#803E96,#AE2F61,#DB212D" Mode="ToRight">
 
-        <StackLayout Grid.Row="0" Grid.Column="0" Padding="0,60,0,0">
+        <StackLayout Grid.Row="0" Grid.Column="0" Padding="0,40,0,0">
           <Label Text="It's go time." HorizontalOptions="CenterAndExpand" Style="{StaticResource HeaderStyle}" />
-          <Label Text="Boarding 8:20 PM at Gate B79" HorizontalOptions="CenterAndExpand" Style="{StaticResource TimeStyle}"/>
-          <StackLayout Orientation="Horizontal" Padding="0,30,0,0">
-            <Label Text="SFO" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
+          <Label  HorizontalOptions="CenterAndExpand" Style="{StaticResource TimeStyle}">
+            <Label.FormattedText>
+              <FormattedString>
+                <Span Text="Boarding " />
+                <Span Text="{Binding BoardingDateTime, StringFormat='{0:t}'}" />
+                <Span Text="at Gate "/>
+                <Span Text="{Binding Gate}" />
+              </FormattedString>
+            </Label.FormattedText>
+          </Label>
+
+          <StackLayout Orientation="Horizontal" Padding="0,20,0,0">
+            <Label Text="{Binding DepartureAirport}" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
 
             <Label Text="&#xf061;" HeightRequest="100"  TextColor="White" FontSize="36" Margin="0,15,0,0">
               <Label.FontFamily>
@@ -60,11 +75,11 @@
               </Label.FontFamily>
             </Label>
 
-            <Label Text="LAX" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
+            <Label Text="{Binding ArrivalAirport}" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
           </StackLayout>
-          <Frame BorderColor="White" Margin="100,0,100,0" CornerRadius="0">
+          
+          <Frame  BackgroundColor="Transparent" BorderColor="White" Margin="70,0,70,0" CornerRadius="0">
             <Label Text="VIEW BOARDING PASS" Style="{StaticResource BoardingStyle}" />
-
           </Frame>
           <Label Text="All flights &#xf107;" HorizontalOptions="CenterAndExpand" Style="{StaticResource TimeStyle}">
             <Label.FontFamily>
@@ -85,11 +100,11 @@
           <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="*"/>
-          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="Auto"/>
           <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Label Text="TERM"  Grid.Row="0" Grid.Column="0" Style="{StaticResource FlightInfoLable}" />
@@ -97,10 +112,10 @@
         <Label Text="SEAT" Grid.Row="0" Grid.Column="2" Style="{StaticResource FlightInfoLable}"/>
         <Label Text="DEPART" Grid.Row="0" Grid.Column="3" Style="{StaticResource FlightInfoLable}"/>
 
-        <Label Text="1"  Grid.Row="1" Grid.Column="0"/>
-        <Label Text="A5" Grid.Row="1" Grid.Column="1"/>
-        <Label Text="5A" Grid.Row="1" Grid.Column="2"/>
-        <Label Text="1:00PM" Grid.Row="1" Grid.Column="3"/>
+        <Label Text="{Binding Term}"  Grid.Row="1" Grid.Column="0"/>
+        <Label Text="{Binding Gate}" Grid.Row="1" Grid.Column="1"/>
+        <Label Text="{Binding Seat}" Grid.Row="1" Grid.Column="2"/>
+        <Label Text="{Binding Atd , StringFormat='{0:t}'}" Grid.Row="1" Grid.Column="3"/>
         <Label Text="&#xf00c;" Grid.Row="1" Grid.Column="4" Style="{StaticResource FlightInfoOnTimeStatus}">
           <Label.FontFamily>
             <OnPlatform x:TypeArguments="x:String">
@@ -109,7 +124,7 @@
             </OnPlatform>
           </Label.FontFamily>
         </Label>
-        <Label Text="ON-TIME" Grid.Row="1" Grid.Column="5" Style="{StaticResource FlightInfoOnTimeStatus}"/>
+        <Label Text="{Binding Status}" Grid.Row="1" Grid.Column="5" Style="{StaticResource FlightInfoOnTimeStatus}"/>
       </Grid>
     </Grid>
   </ContentPage.Content>
