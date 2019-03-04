@@ -27,9 +27,6 @@
       <Style x:Key="FlightInfoLable" TargetType="Label">
         <Setter Property="TextColor" Value="Red"/>
       </Style>
-      <Style x:Key="FlightInfoOnTimeStatus" TargetType="Label">
-        <Setter Property="TextColor" Value="Green"/>
-      </Style>
     </ResourceDictionary>
   </ContentPage.Resources>
   <ContentPage.BindingContext>
@@ -77,9 +74,9 @@
 
             <Label Text="{Binding ArrivalAirport}" HorizontalOptions="CenterAndExpand"  Style="{StaticResource AirportStyle}"/>
           </StackLayout>
-          
+
           <Frame  BackgroundColor="Transparent" BorderColor="White" Margin="70,0,70,0" CornerRadius="0">
-            <Label Text="VIEW BOARDING PASS" Style="{StaticResource BoardingStyle}" />
+            <Label Text="VIEW BOARDING PASS..." Style="{StaticResource BoardingStyle}" />
           </Frame>
           <Label Text="All flights &#xf107;" HorizontalOptions="CenterAndExpand" Style="{StaticResource TimeStyle}">
             <Label.FontFamily>
@@ -116,7 +113,7 @@
         <Label Text="{Binding Gate}" Grid.Row="1" Grid.Column="1"/>
         <Label Text="{Binding Seat}" Grid.Row="1" Grid.Column="2"/>
         <Label Text="{Binding Atd , StringFormat='{0:t}'}" Grid.Row="1" Grid.Column="3"/>
-        <Label Text="&#xf00c;" Grid.Row="1" Grid.Column="4" Style="{StaticResource FlightInfoOnTimeStatus}">
+        <Label Text="{Binding FlightStatus.Font}" Grid.Row="1" Grid.Column="4" TextColor="{Binding FlightStatus.Color}" HorizontalOptions="EndAndExpand">
           <Label.FontFamily>
             <OnPlatform x:TypeArguments="x:String">
               <On Platform="UWP, WinRT, WinPhone" Value="Assets/fa-solid-900.ttf#Font Awesome 5 Free" />
@@ -124,7 +121,7 @@
             </OnPlatform>
           </Label.FontFamily>
         </Label>
-        <Label Text="{Binding Status}" Grid.Row="1" Grid.Column="5" Style="{StaticResource FlightInfoOnTimeStatus}"/>
+        <Label Text="{Binding FlightStatus.Text}" Grid.Row="1" Grid.Column="5" TextColor="{Binding FlightStatus.Color}" HorizontalOptions="EndAndExpand"/>
       </Grid>
     </Grid>
   </ContentPage.Content>

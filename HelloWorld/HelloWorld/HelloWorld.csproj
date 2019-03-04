@@ -1,7 +1,8 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>default</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -16,12 +17,22 @@
     <None Remove="Flights.png" />
     <None Remove="Hotels.png" />
     <None Remove="HTelUnio.png" />
+    <None Remove="Images\Airline\EK.png" />
+    <None Remove="Images\Airline\IR.png" />
+    <None Remove="Images\Airline\TK.png" />
+    <None Remove="Images\Airline\W5.png" />
+    <None Remove="Images\Airline\WY.png" />
     <None Remove="Images\mahan-airline-logo-fara.png" />
     <None Remove="SanFran.png" />
   </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Images\Activities.png" />
+    <EmbeddedResource Include="Images\Airline\EK.png" />
+    <EmbeddedResource Include="Images\Airline\IR.png" />
+    <EmbeddedResource Include="Images\Airline\TK.png" />
+    <EmbeddedResource Include="Images\Airline\W5.png" />
+    <EmbeddedResource Include="Images\Airline\WY.png" />
     <EmbeddedResource Include="Images\Cars.png" />
     <EmbeddedResource Include="Images\Fairmo.png" />
     <EmbeddedResource Include="Images\Flights.png" />

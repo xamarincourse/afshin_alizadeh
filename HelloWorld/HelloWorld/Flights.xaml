@@ -1,8 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:model="clr-namespace:HelloWorld.Model"
+             xmlns:local="clr-namespace:HelloWorld"
              x:Class="HelloWorld.Flights">
-    <ContentPage.Content>
-       
-    </ContentPage.Content>
+
+  <ListView x:Name="flightListView" >
+
+    <ListView.ItemTemplate>
+      <DataTemplate x:DataType="model:Flight">
+        <ViewCell>
+          <StackLayout>
+            <StackLayout Orientation="Horizontal">
+              <Image  Source="{Binding Airline.Image}" HeightRequest="40" WidthRequest="40" />
+              <Label Text="{Binding FlightStatus.Text}" HorizontalOptions="EndAndExpand"/>
+            </StackLayout>
+            <Grid>
+
+              <Grid.RowDefinitions>
+                
+              </Grid.RowDefinitions>
+              
+              <Grid.ColumnDefinitions>
+                
+              </Grid.ColumnDefinitions>
+            </Grid>
+          </StackLayout>
+        </ViewCell>
+      </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
 </ContentPage>

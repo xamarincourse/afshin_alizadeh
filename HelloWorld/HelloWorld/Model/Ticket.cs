@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Xamarin.Forms;
 
 namespace HelloWorld.Model
 {
@@ -12,5 +13,6 @@ namespace HelloWorld.Model
     public DateTime BoardingDateTime { get; set; }
 
     public string Term { get; set; }
+   
   }
 }

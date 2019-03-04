@@ -16,12 +16,12 @@ namespace HelloWorld
 	{
 		public MyFlights ()
 		{
-			InitializeComponent ();
+      this.InitComponent(InitializeComponent);
 
       var ticket = new Ticket()
       {
-        Airline = "Mahan",
-        AirlineLogo = ImageSource.FromResource("HelloWorld/Images/mahan-airline-logo-fara.png", GetType().GetTypeInfo().Assembly),
+        //Airline = "Mahan",
+        //AirlineLogo = ImageSource.FromResource("HelloWorld/Images/mahan-airline-logo-fara.png", GetType().GetTypeInfo().Assembly),
         ArrivalAirport = "DXB",
         Ata = DateTime.Now.AddHours(2),
         Atd = DateTime.Now.AddMinutes(10),
@@ -33,7 +33,7 @@ namespace HelloWorld
         Sta = DateTime.Now.AddHours(2),
         Std = DateTime.Now,
         Term = "1",
-        Status= "ON-Time"
+        FlightStatus = FlightStatus.Create(Status.OnTime)
       };
 
       this.BindingContext = ticket;

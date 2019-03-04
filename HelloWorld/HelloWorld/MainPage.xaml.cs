@@ -14,9 +14,14 @@ namespace HelloWorld
       InitializeComponent();
     }
 
-        async void Flighs_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushAsync(new MyFlights());
-        }
+    async void Flighs_Clicked(object sender, EventArgs e)
+    {
+      await Navigation.PushAsync(new Flights());
     }
+
+    async void Activities_Clicked(object sender, EventArgs e)
+    {
+      await Navigation.PushAsync(new MyFlights());
+    }
+  }
 }
