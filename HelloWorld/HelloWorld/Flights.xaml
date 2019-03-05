@@ -3,26 +3,36 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:model="clr-namespace:HelloWorld.Model"
              xmlns:local="clr-namespace:HelloWorld"
+             xmlns:converter="clr-namespace:HelloWorld.ValueConverter"
              x:Class="HelloWorld.Flights">
-
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converter:StatusColorValueConverter x:Key="StatusColorConverter"/>
+      <converter:StatusIconValueConverter x:Key="StatusIconConverter"/>
+      <converter:StatusTextValueConverter x:Key="StatusTextConverter"/>
+    </ResourceDictionary>
+  </ContentPage.Resources>
   <ListView x:Name="flightListView" >
 
     <ListView.ItemTemplate>
-      <DataTemplate x:DataType="model:Flight">
+      <DataTemplate>
         <ViewCell>
-          <StackLayout>
+          <StackLayout Margin="10,0,10,0">
             <StackLayout Orientation="Horizontal">
               <Image  Source="{Binding Airline.Image}" HeightRequest="40" WidthRequest="40" />
-              <Label Text="{Binding FlightStatus.Text}" HorizontalOptions="EndAndExpand"/>
+              <Label Text="{Binding FlightStatus.Status,Converter={StaticResource StatusTextConverter}}"
+                     TextColor="{Binding FlightStatus.Status,Converter={StaticResource StatusColorConverter}}"
+                     HorizontalOptions="EndAndExpand"/>
+
             </StackLayout>
             <Grid>
 
               <Grid.RowDefinitions>
-                
+
               </Grid.RowDefinitions>
-              
+
               <Grid.ColumnDefinitions>
-                
+
               </Grid.ColumnDefinitions>
             </Grid>
           </StackLayout>

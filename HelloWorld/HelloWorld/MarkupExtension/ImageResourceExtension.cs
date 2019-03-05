@@ -7,22 +7,22 @@ using Xamarin.Forms.Xaml;
 
 namespace HelloWorld
 {
-    [ContentProperty(nameof(Source))]
-    public class ImageResourceExtension : IMarkupExtension
+  [ContentProperty(nameof(Source))]
+  public class ImageResourceExtension : IMarkupExtension
+  {
+    public string Source { get; set; }
+
+    public object ProvideValue(IServiceProvider serviceProvider)
     {
-        public string Source { get; set; }
+      if (Source == null)
+      {
+        return null;
+      }
 
-        public object ProvideValue(IServiceProvider serviceProvider)
-        {
-            if (Source == null)
-            {
-                return null;
-            }
+      // Do your translation lookup here, using whatever method you require
+      var imageSource = ImageSource.FromResource(Source, GetType().GetTypeInfo().Assembly);
 
-            // Do your translation lookup here, using whatever method you require
-            var imageSource = ImageSource.FromResource(Source, GetType().GetTypeInfo().Assembly);
-
-            return imageSource;
-        }
+      return imageSource;
     }
+  }
 }
